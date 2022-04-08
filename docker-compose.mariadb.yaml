@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app-db:
+    image: mariadb
+    container_name: cctv-data-kiel.local.db
+    env_file:
+      - .env
+    ports:
+      - 3306:3306
+    volumes:
+      - ./.docker:/var/lib/mysql
+    networks:
+      - cctv-data-kiel.local.network
+
+networks:
+  cctv-data-kiel.local.network:
+    name: cctv-data-kiel.local.network
+    driver: bridge
