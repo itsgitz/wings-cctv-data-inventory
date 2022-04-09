@@ -4,12 +4,8 @@
 @section ('content')
 
 <div id="cctv-index">
-   <div class="p-3 shadow-sm">
-      <a class="btn" href="{{ route('cctv.dashboard.get') }}">
-         <h1 class="fs-4 fw-bolder text-danger">Wings CCTV Dashboard</h1>
-      </a>
-   </div>
 
+   @include ('shared.navigation')
    @include ('shared.search_form')
 
    <div class="table-responsive">
@@ -24,6 +20,7 @@
                <th scope="col">Area CCTV</th>
                <th scope="col">Zona</th>
                <th scope="col">Dibuat Tanggal</th>
+               <th scope="col">#</th>
             </tr>
          </thead>
 
@@ -37,6 +34,11 @@
             <td>{{ $cctv->area }}</td>
             <td>{{ $cctv->zone }}</td>
             <td>{{ $cctv->created_at }}</td>
+            <td>
+               <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-primary shadow fw-bold">
+                  Lihat
+               </a>
+            </td>
          </tr>
          @endforeach
       </table>

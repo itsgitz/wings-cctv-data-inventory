@@ -57,6 +57,7 @@ class Cctvs extends Controller
     public function create()
     {
         //
+        return view('cctvs.create', []);
     }
 
     /**
@@ -78,7 +79,15 @@ class Cctvs extends Controller
      */
     public function show($id)
     {
-        //
+        $cctv = Cctv::where('id', '=', $id)->first();
+
+        if ( !isset($cctv) ) {
+            abort(404);
+        }
+
+        return view('cctvs.show', [
+            'cctv' => $cctv
+        ]);
     }
 
     /**
