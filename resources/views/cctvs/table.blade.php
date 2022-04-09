@@ -1,4 +1,8 @@
 <div class="shadow-sm p-3">
+   <a class="btn btn-sm btn-primary shadow fw-bold" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
+      Edit
+   </a>
+   <div class="py-3"></div>
    @if (isset($cctv))
    <div class="table-responsive">
       <table class="table table-hover">

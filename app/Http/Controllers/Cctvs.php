@@ -99,6 +99,15 @@ class Cctvs extends Controller
     public function edit($id)
     {
         //
+        $cctv = Cctv::find($id)->first();
+
+        if ( !isset($cctv) ) {
+            abort(404);
+        }
+
+        return view('cctvs.edit', [
+            'cctv' => $cctv
+        ]);
     }
 
     /**

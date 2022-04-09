@@ -35,7 +35,7 @@
             <td>{{ $cctv->zone }}</td>
             <td>{{ $cctv->created_at }}</td>
             <td>
-               <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-primary shadow fw-bold">
+               <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-success shadow fw-bold">
                   Lihat
                </a>
             </td>

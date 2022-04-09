@@ -1,6 +1,6 @@
 @extends ('layouts.app')
 
-@section ('title', 'Menampilkan CCTV - ' . $cctv->ip_cctv)
+@section ('title', 'Menampilkan CCTV ' . $cctv->ip_cctv)
 @section ('content')
 
 <div id="cctv-index">
