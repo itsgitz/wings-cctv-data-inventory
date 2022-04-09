@@ -22,11 +22,15 @@ return new class extends Migration
             $table->enum('status', ['Online', 'Offline'])->nullable();
             $table->string('area')->nullable();
             $table->string('zone')->nullable();
-            $table->string('no_cctv')->nullable();
+            $table->string('cctv_number')->nullable();
             $table->string('category_area')->nullable();
             $table->string('location')->nullable();
+            $table->string('old_cctv')->nullable();
+            $table->string('new_cctv')->nullable();
+            $table->string('name_change')->nullable();
             $table->string('data_status')->nullable();
             $table->string('description')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
 
             $table->index([

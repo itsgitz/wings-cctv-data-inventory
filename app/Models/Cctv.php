@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Cctv extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Cctvs;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [Cctvs::class, 'index'])->name('cctv.dashboard.get');
+Route::get('/search', [Cctvs::class, 'searchOnlyPage'])->name('cctv.search.get');
+Route::post('/search', [Cctvs::class, 'searchShowData'])->name('cctv.search.post');
+
+Route::resource('cctvs', Cctvs::class)->only([
+    'create',
+    'store',
+    'show',
+    'edit',
+    'update',
+    'destroy'
+]);
