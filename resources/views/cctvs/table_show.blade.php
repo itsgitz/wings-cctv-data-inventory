@@ -45,7 +45,9 @@
       <h3>Info CCTV</h3>
    </div>
 
-   @include ('shared.message')
+   <div class="px-3">
+      @include ('shared.message')
+   </div>
 
    <div class="px-3">
       @if (isset($cctv->image))
