@@ -49,7 +49,7 @@
       @include ('shared.message')
    </div>
 
-   <div class="px-3">
+   <div class="px-3 text-center">
       @if (isset($cctv->image))
          <img src="{{ $cctv->image }}" alt="CCTV - {{ $cctv->ip_cctv }}" class="img-fluid shadow-lg rounded">
       @else
