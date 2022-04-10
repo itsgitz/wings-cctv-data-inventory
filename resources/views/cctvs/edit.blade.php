@@ -6,6 +6,9 @@
    <div class="py-3"></div>
 
    <div class="p-3 shadow-sm">
+      <div class="py-3">
+         <h3>Edit CCTV</h3>
+      </div>
       @error('ip_nvr')
          <div class="alert alert-danger alert-dismissible fw-light">
             <i class="fas fa-exclamation-triangle"></i> {{ $message }}

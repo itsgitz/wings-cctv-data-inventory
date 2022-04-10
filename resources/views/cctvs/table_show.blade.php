@@ -1,11 +1,16 @@
 <div class="shadow-sm p-3">
+   @if (isset($cctv))
+
    <div class="px-3">
       <a class="btn btn-sm btn-primary shadow fw-bold" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
          <i class="fas fa-cog"></i> Edit
       </a>
    </div>
    <div class="py-3"></div>
-   @if (isset($cctv))
+
+   <div class="px-3 py-2">
+      <h3>Info CCTV</h3>
+   </div>
 
    @include ('shared.message')
 

@@ -68,7 +68,18 @@ class Cctvs extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate(
+            [
+                'ip_nvr'        => ['required', 'ipv4'],
+                'ip_cctv'       => ['required', 'ipv4'],
+            ],
+            [
+                'ip_nvr.required'   => 'IP Address untuk NVR tidak boleh kosong',
+                'ip_nvr.ipv4'       => 'IP Address untuk NVR harus berformat IPv4',
+                'ip_cctv.required'  => 'IP Address untuk CCTV tidak boleh kosong',
+                'ip_cctv.ipv4'      => 'IP Address untuk CCTV harus berformat IPv4'
+            ]
+        );
     }
 
     /**
