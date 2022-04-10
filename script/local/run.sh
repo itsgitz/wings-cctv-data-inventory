@@ -15,6 +15,6 @@ echo "Waiting for database service ($DB_HOST) ..."
 # done
 
 sleep 5
-docker run --rm -it php:8 php artisan migrate
-docker run --rm -it php:8 php artisan db:seed
-docker run --rm -it php:8 php artisan serve
+docker run --rm -it -v $(pwd):/laravel php:8 php /laravel/artisan migrate
+docker run --rm -it -v $(pwd):/laravel php:8 php /laravel/artisan db:seed
+docker run --rm -it -v $(pwd):/laravel php:8 php /laravel/artisan serve
