@@ -4,5 +4,5 @@ docker-compose \
     -f docker-compose.cloud.yaml \
     -p cctv-data-kiel_itsgitz_com \
     exec \
-    web \
+    app-web \
     php artisan storage:link
