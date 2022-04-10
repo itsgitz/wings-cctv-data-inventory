@@ -10,7 +10,7 @@ services:
     volumes:
       - ./.docker:/var/lib/mysql
     networks:
-      - cctv-data-kiel.local.network
+      - cctv-data-kiel.prod.network
 
   web:
     build:
