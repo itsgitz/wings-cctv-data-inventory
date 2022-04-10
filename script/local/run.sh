@@ -10,11 +10,11 @@ docker-compose -f \
     up --build --force-recreate -d
 
 echo "Waiting for database service ($DB_HOST) ..."
-while ! docker exec -it $DB_HOST mysqladmin ping --silent; do
-    sleep 1
-done
+# while ! docker exec -it $DB_HOST mysqladmin ping --silent; do
+#     sleep 1
+# done
 
-sleep 3
+sleep 5
 php artisan migrate
 php artisan db:seed
 php artisan serve
