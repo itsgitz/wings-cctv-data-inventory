@@ -1,8 +1,8 @@
 
 FROM php:8-fpm
 
-WORKDIR /var/www/minuman-tile.itsgitz.com
-COPY . /var/www/minuman-tile.itsgitz.com
+WORKDIR /var/www/cctv-data-kiel.itsgitz.com
+COPY . /var/www/cctv-data-kiel.itsgitz.com
 
 # Install system dependencies
 RUN apt-get update; \
