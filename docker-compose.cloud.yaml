@@ -12,7 +12,7 @@ services:
     networks:
       - cctv-data-kiel.prod.network
 
-  web:
+  app-web:
     build:
       context: .
     container_name: cctv-data-kiel.prod.web
@@ -24,7 +24,7 @@ services:
     networks:
       - cctv-data-kiel.prod.network
 
-  server:
+  app-server:
     image: nginx
     container_name: cctv-data-kiel.prod.server
     restart: always
