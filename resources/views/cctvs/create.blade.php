@@ -80,6 +80,7 @@
             <label class="form-label" for="description">Keterangan</label>
             <textarea id="description" class="form-control" type="text" name="description"></textarea>
          </div>
+         <div class="py-2"></div>
          <a class="btn btn-sm btn-danger shadow fw-bolder" href="{{ route('cctv.dashboard.get') }}">
             Batal
          </a>

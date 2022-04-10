@@ -80,6 +80,30 @@ class Cctvs extends Controller
                 'ip_cctv.ipv4'      => 'IP Address untuk CCTV harus berformat IPv4'
             ]
         );
+
+
+       $cctv = new Cctv;
+       $cctv->cctv_type     = $request->cctv_type;
+       $cctv->ip_nvr        = $request->ip_nvr;
+       $cctv->ip_cctv       = $request->ip_cctv;
+       $cctv->ch            = $request->ch;
+       $cctv->status        = $request->status;
+       $cctv->area          = $request->area;
+       $cctv->zone          = $request->zone;
+       $cctv->cctv_number   = $request->cctv_number;
+       $cctv->category_area     = $request->category_area;
+       $cctv->location          = $request->location;
+       $cctv->old_cctv          = $request->old_cctv;
+       $cctv->new_cctv          = $request->new_cctv;
+       $cctv->name_change       = $request->name_change;
+       $cctv->data_status       = $request->data_status;
+       $cctv->description       = $request->description;
+
+       $cctv->save();
+
+       return redirect()
+           ->route('cctvs.show', ['cctv' => $cctv->id])
+           ->with('message_success', 'Berhasil menambah CCTV');
     }
 
     /**
@@ -175,6 +199,11 @@ class Cctvs extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cctv = Cctv::find($id);
+        $cctv->delete();
+
+        return redirect()
+            ->route('cctv.dashboard.get')
+            ->with('message_success', 'Berhasil menghapus CCTV');
     }
 }

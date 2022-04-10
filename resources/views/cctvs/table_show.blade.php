@@ -2,10 +2,43 @@
    @if (isset($cctv))
 
    <div class="px-3">
-      <a class="btn btn-sm btn-primary shadow fw-bold" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
-         <i class="fas fa-cog"></i> Edit
-      </a>
+      <ul class="nav">
+         <li class="nav-item p-1">
+            <a class="btn btn-sm btn-primary shadow fw-bolder" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
+               <i class="fas fa-cog"></i> Edit
+            </a>
+         </li>
+         <li class="nav-item p-1">
+            <button class="btn btn-sm btn-danger shadow fw-bolder" type="button" data-bs-toggle="modal" data-bs-target="#deleteData">
+               <i class="fas fa-trash"></i> Hapus
+            </button>
+         </li>
+      </ul>
    </div>
+
+   <!-- Modal -->
+   <div class="modal fade" id="deleteData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h5 class="modal-title" id="exampleModalLabel">Hapus CCTV</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            Apakah anda yakin akan menghapus CCTV {{ $cctv->ip_cctv }} ?
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-sm btn-secondary shadow fw-bolder" data-bs-dismiss="modal">Batal</button>
+            <form action="{{ route('cctvs.destroy', ['cctv' => $cctv->id]) }}" method="post">
+               @csrf
+               @method ('DELETE')
+               <button type="submit" class="btn btn-sm shadow fw-bolder btn-danger">Hapus</button>
+            </form>
+         </div>
+       </div>
+     </div>
+   </div>
+
    <div class="py-3"></div>
 
    <div class="px-3 py-2">
@@ -84,7 +117,7 @@
    </div>
    @endif
 
-   <div class="py-1">
+   <div class="p-3">
       <a class="btn btn-sm btn-danger fw-bolder shadow" href="{{ route('cctv.dashboard.get') }}">
          Kembali
       </a>

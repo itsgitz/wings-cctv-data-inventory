@@ -26,7 +26,7 @@
          @method ('PUT')
          <div class="mb-3 col-md-6">
             <label class="form-label" for="cctvType">Jenis CCTV</label>
-            <input id="cctvType" class="form-control" type="text" name="cctv_type" value="{{ $cctv->cctv_type ?? '-' }}">
+            <input id="cctvType" class="form-control" type="text" name="cctv_type" value="{{ $cctv->cctv_type ?? '-' }}" required>
          </div>
          <div class="mb-3 col-md-6">
             <label class="form-label" for="ipNvr">IP NVR</label>
@@ -87,6 +87,7 @@
             <label class="form-label" for="description">Keterangan</label>
             <textarea id="description" class="form-control" type="text" name="description">{{ $cctv->description ?? '-' }}</textarea>
          </div>
+         <div class="py-2"></div>
          <a class="btn btn-sm btn-danger shadow fw-bolder" href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}">
             Batal
          </a>

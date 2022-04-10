@@ -16,10 +16,13 @@
          <div class="d-flex">
             <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link fw-bold" href="{{ route('cctv.dashboard.get') }}">Dashboard</a>
+                  <a class="nav-link fw-bold" href="{{ route('cctv.dashboard.get') }}">
+                     <i class="fas fa-chalkboard"></i> Dashboard
+                  </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link fw-bold" href="{{ route('cctvs.create') }}">Tambah CCTV</a>
+                  <a class="nav-link fw-bold" href="{{ route('cctvs.create') }}">
+                     <i class="fas fa-camera"></i> Tambah CCTV</a>
                </li>
             </ul>
          </div>
