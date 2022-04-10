@@ -15,8 +15,6 @@ echo "Waiting for database service ($DB_HOST) ..."
 # done
 
 sleep 5
-docker run --rm -it -v $(pwd):/laravel/ composer install
-docker run --rm -it -v $(pwd):/app -w /app node:lts npm install
-docker run --rm -it -v $(pwd):/laravel/ php:8 php /laravel/artisan migrate
-docker run --rm -it -v $(pwd):/laravel/ php:8 php /laravel/artisan db:seed
-docker run --rm --name cctv_data_kiel -d -it -v $(pwd):/laravel/ php:8 php /laravel/artisan serve
+php artisan migrate
+php artisan db:seed
+php artisan serve

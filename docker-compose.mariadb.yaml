@@ -6,7 +6,7 @@ services:
     env_file:
       - .env
     ports:
-      - 3337:3306
+      - 3306:3306
     volumes:
       - ./.docker:/var/lib/mysql
     networks:
