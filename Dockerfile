@@ -1,5 +1,5 @@
 
-FROM php:7.4-fpm
+FROM php:8-fpm
 
 WORKDIR /var/www/minuman-tile.itsgitz.com
 COPY . /var/www/minuman-tile.itsgitz.com

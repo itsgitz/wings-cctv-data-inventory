@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 docker-compose \
-    -f docker-composer.cloud.yaml \
+    -f docker-compose.cloud.yaml \
     -p cctv-data-kiel_itsgitz_com \
     exec \
     web \
