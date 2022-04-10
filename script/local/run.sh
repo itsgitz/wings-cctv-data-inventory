@@ -15,6 +15,6 @@ echo "Waiting for database service ($DB_HOST) ..."
 # done
 
 sleep 5
-php artisan migrate
-php artisan db:seed
-php artisan serve
+docker run --rm -it php:8 php artisan migrate
+docker run --rm -it php:8 php artisan db:seed
+docker run --rm -it php:8 php artisan serve
