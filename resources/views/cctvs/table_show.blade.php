@@ -1,70 +1,75 @@
 <div class="shadow-sm p-3">
-   <a class="btn btn-sm btn-primary shadow fw-bold" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
-      Edit
-   </a>
+   <div class="px-3">
+      <a class="btn btn-sm btn-primary shadow fw-bold" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
+         <i class="fas fa-cog"></i> Edit
+      </a>
+   </div>
    <div class="py-3"></div>
    @if (isset($cctv))
-   <div class="table-responsive">
+
+   @include ('shared.message')
+
+   <div class="table-responsive p-2">
       <table class="table table-hover">
          <tr>
             <td>Jenis</td>
-            <td>{{ $cctv->cctv_type }}</td>
+            <td>{{ $cctv->cctv_type ?? '-' }}</td>
          </tr>
          <tr>
             <td>IP NVR</td>
-            <td>{{ $cctv->ip_nvr }}</td>
+            <td>{{ $cctv->ip_nvr ?? '-' }}</td>
          </tr>
          <tr>
             <td>IP CCTV</td>
-            <td>{{ $cctv->ip_cctv }}</td>
+            <td>{{ $cctv->ip_cctv ?? '-' }}</td>
          </tr>
          <tr>
             <td>CH</td>
-            <td>{{ $cctv->ch }}</td>
+            <td>{{ $cctv->ch ?? '-' }}</td>
          </tr>
          <tr>
             <td>Status</td>
-            <td>{{ $cctv->status }}</td>
+            <td>{{ $cctv->status ?? '-' }}</td>
          </tr>
          <tr>
             <td>Area</td>
-            <td>{{ $cctv->area }}</td>
+            <td>{{ $cctv->area ?? '-' }}</td>
          </tr>
          <tr>
             <td>Zona</td>
-            <td>{{ $cctv->zone }}</td>
+            <td>{{ $cctv->zone ?? '-' }}</td>
          </tr>
          <tr>
             <td>No CCTV</td>
-            <td>{{ $cctv->cctv_number }}</td>
+            <td>{{ $cctv->cctv_number ?? '-' }}</td>
          </tr>
          <tr>
             <td>Kategori Area</td>
-            <td>{{ $cctv->category_area }}</td>
+            <td>{{ $cctv->category_area ?? '-' }}</td>
          </tr>
          <tr>
             <td>Lokasi</td>
-            <td>{{ $cctv->location }}</td>
+            <td>{{ $cctv->location ?? '-' }}</td>
          </tr>
          <tr>
             <td>Nama CCTV Old</td>
-            <td>{{ $cctv->old_cctv }}</td>
+            <td>{{ $cctv->old_cctv ?? '-' }}</td>
          </tr>
          <tr>
             <td>New Nama CCTV</td>
-            <td>{{ $cctv->new_cctv }}</td>
+            <td>{{ $cctv->new_cctv ?? '-' }}</td>
          </tr>
          <tr>
-            <td>Perubahan Nama Dome</td>
-            <td>{{ $cctv->name_change }}</td>
+            <td>Perubahan Nama Done</td>
+            <td>{{ $cctv->name_change ?? '-' }}</td>
          </tr>
          <tr>
             <td>Status Pendataan</td>
-            <td>{{ $cctv->data_status }}</td>
+            <td>{{ $cctv->data_status ?? '-' }}</td>
          </tr>
          <tr>
             <td>Keterangan</td>
-            <td>{{ $cctv->description }}</td>
+            <td>{{ $cctv->description ?? '-' }}</td>
          </tr>
       </table>
    </div>

@@ -4,10 +4,8 @@
 @section ('content')
 
 <div id="cctv-index">
-   @include ('shared.navigation')
    @include ('shared.search_form')
-   @include ('cctvs.table')
-
+   @include ('cctvs.table_show')
 </div>
 
 @endsection

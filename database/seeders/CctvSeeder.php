@@ -15,10 +15,13 @@ class CctvSeeder extends Seeder
      */
     public function run()
     {
-        $cctvData = CctvData::getCctvsData();
+        $cctvData       = CctvData::getCctvsData();
+        $existingCctv   = Cctv::all();
 
-        foreach ($cctvData as $cctv) {
-            Cctv::create($cctv);
+        if ( $existingCctv->isEmpty() ) {
+            foreach ($cctvData as $cctv) {
+                Cctv::create($cctv);
+            }
         }
     }
 }

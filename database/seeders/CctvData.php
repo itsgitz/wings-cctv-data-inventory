@@ -14,15 +14,8 @@ class CctvData
                 'ch'                => 'D1',
                 'status'            => 'Online',
                 'area'              => 'Indoor',
-                'zone'              => '-',
-                'cctv_number'       => '-',
                 'category_area'     => 'IN-WGO-LT2-01',
                 'location'          => 'IN-WGO-LT2-01',
-                'old_cctv'          => '-',
-                'new_cctv'          => '-',
-                'name_change'       => '-',
-                'data_status'       => '-',
-                'description'       => '-'
             ],
             [
                 'cctv_type'         => 'IP',
@@ -31,15 +24,8 @@ class CctvData
                 'ch'                => 'D7',
                 'status'            => 'Online',
                 'area'              => 'Indoor',
-                'zone'              => '-',
-                'cctv_number'       => '-',
                 'category_area'     => 'IN-GAF-LT2-01',
                 'location'          => 'IN-GAF-LT2-01',
-                'old_cctv'          => '-',
-                'new_cctv'          => '-',
-                'name_change'       => '-',
-                'data_status'       => '-',
-                'description'       => '-'
             ],
             [
                 'cctv_type'         => 'IP',
@@ -48,15 +34,9 @@ class CctvData
                 'ch'                => 'D01',
                 'status'            => 'Online',
                 'area'              => 'Outdoor',
-                'zone'              => '-',
-                'cctv_number'       => '-',
                 'category_area'     => 'BOF',
                 'location'          => 'BOF',
-                'old_cctv'          => '-',
-                'new_cctv'          => '-',
-                'name_change'       => '-',
                 'data_status'       => 'Penambahan Baru CCTV BOF',
-                'description'       => '-'
             ],
             [
                 'cctv_type'         => 'IP',
@@ -65,15 +45,9 @@ class CctvData
                 'ch'                => 'D02',
                 'status'            => 'Online',
                 'area'              => 'Outdoor',
-                'zone'              => '-',
-                'cctv_number'       => '-',
                 'category_area'     => 'BOF',
                 'location'          => 'BOF',
-                'old_cctv'          => '-',
-                'new_cctv'          => '-',
-                'name_change'       => '-',
                 'data_status'       => 'Penambahan Baru CCTV BOF',
-                'description'       => '-'
             ]
        ];
 

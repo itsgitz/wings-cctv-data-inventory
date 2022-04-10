@@ -119,7 +119,41 @@ class Cctvs extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate(
+            [
+                'ip_nvr'        => ['required', 'ipv4'],
+                'ip_cctv'       => ['required', 'ipv4'],
+            ],
+            [
+                'ip_nvr.required'   => 'IP Address untuk NVR tidak boleh kosong',
+                'ip_nvr.ipv4'       => 'IP Address untuk NVR harus berformat IPv4',
+                'ip_cctv.required'  => 'IP Address untuk CCTV tidak boleh kosong',
+                'ip_cctv.ipv4'      => 'IP Address untuk CCTV harus berformat IPv4'
+            ]
+        );
+
+        $cctv = Cctv::find($id);
+        $cctv->cctv_type    = $request->cctv_type;
+        $cctv->ip_nvr       = $request->ip_nvr;
+        $cctv->ip_cctv      = $request->ip_cctv;
+        $cctv->ch           = $request->ch;
+        $cctv->status       = $request->status;
+        $cctv->area         = $request->area;
+        $cctv->zone         = $request->zone;
+        $cctv->cctv_number  = $request->cctv_number;
+        $cctv->category_area    = $request->category_area;
+        $cctv->location         = $request->location;
+        $cctv->old_cctv         = $request->old_cctv;
+        $cctv->new_cctv         = $request->new_cctv;
+        $cctv->name_change      = $request->name_change;
+        $cctv->data_status      = $request->data_status;
+        $cctv->description      = $request->description;
+
+        $cctv->save();
+
+        return redirect()
+            ->route('cctvs.show', ['cctv' => $id])
+            ->with('message_success', 'Berhasil mengubah data CCTV '. $request->ip_cctv);
     }
 
     /**
