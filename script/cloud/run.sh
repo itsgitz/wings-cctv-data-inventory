@@ -21,7 +21,7 @@ echo "[*] Waiting MariaDB ..."
 sleep 5
 
 echo "[*] Run DB Migration ..."
-./script/cloud/migrations.sh
+./script/cloud/migration.sh
 
 echo "[*] Run DB Seeding ..."
 ./script/cloud/seed.sh
