@@ -21,7 +21,17 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
          </div>
       @enderror
-      <form action="{{ route('cctvs.update', ['cctv' => $cctv->id]) }}" method="post">
+      <div>
+         @if (isset($cctv->image))
+            <img src="{{ $cctv->image }}" alt="CCTV - {{ $cctv->ip_cctv }}" class="img-fluid shadow-lg rounded">
+         @else
+            <div class="alert alert-secondary">
+               <i class="fas fa-camera"></i> Tidak ada gambar yang dapat ditampilkan
+            </div>
+         @endif
+      </div>
+      <div class="py-3"></div>
+      <form action="{{ route('cctvs.update', ['cctv' => $cctv->id]) }}" method="post" enctype="multipart/form-data">
          @csrf
          @method ('PUT')
          <div class="mb-3 col-md-6">
@@ -86,6 +96,10 @@
          <div class="mb-3 col-md-6">
             <label class="form-label" for="description">Keterangan</label>
             <textarea id="description" class="form-control" type="text" name="description">{{ $cctv->description ?? '-' }}</textarea>
+         </div>
+         <div class="mb-3 col-md-6">
+            <label class="form-label" for="image">Ubah Gambar CCTV</label>
+            <input id="image" class="form-control" type="file" name="image">
          </div>
          <div class="py-2"></div>
          <a class="btn btn-sm btn-danger shadow fw-bolder" href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}">

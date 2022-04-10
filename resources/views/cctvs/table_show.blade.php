@@ -47,6 +47,18 @@
 
    @include ('shared.message')
 
+   <div class="px-3">
+      @if (isset($cctv->image))
+         <img src="{{ $cctv->image }}" alt="CCTV - {{ $cctv->ip_cctv }}" class="img-fluid shadow-lg rounded">
+      @else
+         <div class="alert alert-secondary">
+            <i class="fas fa-camera"></i> Tidak ada gambar yang dapat ditampilkan
+         </div>
+      @endif
+   </div>
+
+   <div class="py-3"></div>
+
    <div class="table-responsive p-2">
       <table class="table table-hover">
          <tr>

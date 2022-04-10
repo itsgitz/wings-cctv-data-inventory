@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cctv;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class Cctvs extends Controller
 {
@@ -99,6 +100,12 @@ class Cctvs extends Controller
        $cctv->data_status       = $request->data_status;
        $cctv->description       = $request->description;
 
+
+       if ( !empty( $request->file('image') ) ) {
+           $image = $request->file('image')->store('public/img/cctvs');
+           $cctv->image = Storage::url($image);
+       }
+
        $cctv->save();
 
        return redirect()
@@ -134,7 +141,7 @@ class Cctvs extends Controller
     public function edit($id)
     {
         //
-        $cctv = Cctv::find($id)->first();
+        $cctv = Cctv::find($id);
 
         if ( !isset($cctv) ) {
             abort(404);
@@ -184,6 +191,16 @@ class Cctvs extends Controller
         $cctv->data_status      = $request->data_status;
         $cctv->description      = $request->description;
 
+        if ( !empty( $request->file('image') ) ) {
+            if ( isset($cctv->image) ) {
+                $filePath = 'public' . str_replace('/storage', '', $cctv->image);
+                Storage::delete($filePath);
+            }
+
+            $image = $request->file('image')->store('public/img/cctvs');
+            $cctv->image = Storage::url($image);
+        }
+
         $cctv->save();
 
         return redirect()
@@ -200,7 +217,11 @@ class Cctvs extends Controller
     public function destroy($id)
     {
         $cctv = Cctv::find($id);
+
         $cctv->delete();
+
+        $filePath = 'public' . str_replace('/storage', '', $cctv->image);
+        Storage::delete($filePath);
 
         return redirect()
             ->route('cctv.dashboard.get')

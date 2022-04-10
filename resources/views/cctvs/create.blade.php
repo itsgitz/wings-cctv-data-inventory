@@ -22,7 +22,7 @@
          </div>
       @enderror
 
-      <form action="{{ route('cctvs.store') }}" method="post">
+      <form action="{{ route('cctvs.store') }}" method="post" enctype="multipart/form-data">
          @csrf
          <div class="mb-3 col-md-6">
             <label class="form-label" for="cctvType">Jenis CCTV</label>
@@ -79,6 +79,10 @@
          <div class="mb-3 col-md-6">
             <label class="form-label" for="description">Keterangan</label>
             <textarea id="description" class="form-control" type="text" name="description"></textarea>
+         </div>
+         <div class="mb-3 col-md-6">
+            <label class="form-label" for="image">Gambar CCTV</label>
+            <input id="image" class="form-control" type="file" name="image">
          </div>
          <div class="py-2"></div>
          <a class="btn btn-sm btn-danger shadow fw-bolder" href="{{ route('cctv.dashboard.get') }}">
