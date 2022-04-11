@@ -3,7 +3,7 @@
       <div class="container">
       <a class="navbar-brand" href="{{ route('cctv.dashboard.get') }}">
          <img src="/img/wings.svg" alt="wings-logo" width="100">
-         <span class="text-danger fw-light">CCTV Data Inventory</span>
+         <span class="text-danger fw-light brand-text">CCTV Data Inventory</span>
       </a>
        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>

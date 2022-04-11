@@ -5,3 +5,8 @@
     outline: none;
     box-shadow: none;
 }
+@media only screen and (max-width: 640px) {
+    .brand-text {
+        display: none;
+    }
+}

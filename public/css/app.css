@@ -19064,4 +19064,9 @@ readers do not read off random characters that represent icons */
     outline: none;
     box-shadow: none;
 }
+@media only screen and (max-width: 640px) {
+    .brand-text {
+        display: none;
+    }
+}
 
