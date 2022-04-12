@@ -46,7 +46,8 @@ class Cctvs extends Controller
     public function searchOnlyPage()
     {
         return view('cctvs.search', [
-            'welcome' => 'Silahkan cari data CCTV berdasarkan IP CCTV'
+            'welcome' => 'Silahkan cari data CCTV berdasarkan IP CCTV',
+            'requested_cctv' => null
         ]);
     }
 
