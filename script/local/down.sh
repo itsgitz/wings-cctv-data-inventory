@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-DB_HOST="cctv-data-kiel.local.db"
+PROJECT_NAME="cctv-data-kiel_local_db"
 
 docker-compose -f \
-    docker-compose.mariadb.yaml \
-    -p $DB_HOST \
+    docker-compose.local.yaml \
+    -p $PROJECT_NAME \
     down -v; \
     docker system prune -f

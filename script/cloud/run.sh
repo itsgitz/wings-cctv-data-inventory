@@ -6,9 +6,11 @@
 
 echo "[*] Run the services on Cloud (Production) ..."
 
+PROJECT_NAME="cctv-data-kiel_itsgitz_com"
+
 DOCKER_BUILDKIT=1 \
     docker-compose -f docker-compose.cloud.yaml \
-    -p cctv-data-kiel_itsgitz_com \
+    -p $PROJECT_NAME \
     up --build --force-recreate -d
 
 echo "[*] Run Composer Install ..."

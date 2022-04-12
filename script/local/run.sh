@@ -3,16 +3,14 @@
 # MAINTAINER: anggit.ginanjar.dev@gmail.com
 
 DB_HOST="cctv-data-kiel.local.db"
+PROJECT_NAME="cctv-data-kiel_local_db"
 
 docker-compose -f \
-    docker-compose.mariadb.yaml \
-    -p $DB_HOST \
+    docker-compose.local.yaml \
+    -p $PROJECT_NAME \
     up --build --force-recreate -d
 
 echo "Waiting for database service ($DB_HOST) ..."
-# while ! docker exec -it $DB_HOST mysqladmin ping --silent; do
-#     sleep 1
-# done
 
 sleep 5
 php artisan migrate
