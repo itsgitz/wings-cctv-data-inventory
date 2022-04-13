@@ -6,8 +6,13 @@ use App\Models\Cctv;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class Cctvs extends Controller
+class CctvsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
