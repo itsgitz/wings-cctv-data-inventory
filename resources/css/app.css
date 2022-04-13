@@ -1,6 +1,9 @@
 @import 'bootstrap';
 @import '@fortawesome/fontawesome-free/css/all';
 
+.text-extra-sm {
+    font-size: 0.9rem;
+}
 .disable-outline:focus {
     outline: none;
     box-shadow: none;

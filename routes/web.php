@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Cctvs;
+use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\CctvsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Cctvs::class, 'index'])->name('cctv.dashboard.get');
-Route::get('/search', [Cctvs::class, 'searchOnlyPage'])->name('cctv.search.get');
-Route::post('/search', [Cctvs::class, 'searchShowData'])->name('cctv.search.post');
+Route::get('/', [CctvsController::class, 'index'])->name('cctv.dashboard.get');
+Route::get('/search', [CctvsController::class, 'searchOnlyPage'])->name('cctv.search.get');
+Route::post('/search', [CctvsController::class, 'searchShowData'])->name('cctv.search.post');
 
-Route::resource('cctvs', Cctvs::class)->only([
+Route::resource('cctvs', CctvsController::class)->only([
     'create',
     'store',
     'show',
@@ -26,3 +27,16 @@ Route::resource('cctvs', Cctvs::class)->only([
     'update',
     'destroy'
 ]);
+
+Route::get('/login', [AuthenticationController::class, 'login'])
+    ->name('auth.login.get')
+    ->middleware('guest');
+
+Route::post('/login', [AuthenticationController::class, 'authenticate'])
+    ->name('auth.login.post')
+    ->middleware('guest');
+
+Route::get('/logout', [AuthenticationController::class, 'logout'])
+    ->name('auth.logout.get')
+    ->middleware('auth');
+

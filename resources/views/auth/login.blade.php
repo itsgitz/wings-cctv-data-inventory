@@ -9,6 +9,7 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
    <div class="container">
+      @include ('auth.login_form')
    </div>
 </body>
 </html>

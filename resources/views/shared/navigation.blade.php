@@ -24,6 +24,11 @@
                   <a class="nav-link fw-bold" href="{{ route('cctvs.create') }}">
                      <i class="fas fa-camera"></i> Tambah CCTV</a>
                </li>
+               <li class="nav-item">
+                  <a class="nav-link fw-bold" href="{{ route('auth.logout.get') }}">
+                     <i class="fas fa-sign-out-alt"></i> Logout
+                  </a>
+               </li>
             </ul>
          </div>
        </div>
