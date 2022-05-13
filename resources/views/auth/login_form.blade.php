@@ -15,10 +15,10 @@
          <form action="{{ route('auth.login.post') }}" method="post">
             @csrf
             <div class="form-floating mb-3">
-               <input id="email" type="email" class="form-control disable-outline" placeholder="email@saya.com" name="email" required>
-               <label for="email">Email</label>
+               <input id="userid" type="text" class="form-control disable-outline" placeholder="Username" name="userid" required>
+               <label for="userid">Username</label>
             </div>
-            @error ('email')
+            @error ('userid')
             <div class="alert alert-danger text-extra-sm">
                <i class="fas fa-exclamation-triangle"></i> {{ $message }}
             </div>

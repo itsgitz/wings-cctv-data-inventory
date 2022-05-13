@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
 
         if ( $existingUsers->isEmpty() ) {
             $user           = new User;
+            $user->userid   = env('USER_ID');
             $user->name     = env('USER_NAME');
             $user->email    = env('USER_EMAIL');
             $user->password = Hash::make(env('USER_PASSWORD'));
