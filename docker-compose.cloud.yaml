@@ -9,6 +9,7 @@ services:
       - 3337:3306
     volumes:
       - ./.docker:/var/lib/mysql
+    restart: always
     networks:
       - cctv-data-kiel.prod.network
 
@@ -39,6 +40,7 @@ services:
   app-redis:
     image: redis
     container_name: cctv-data-kiel.prod.redis
+    restart: always
     ports:
       - 6400:6379
     networks:
