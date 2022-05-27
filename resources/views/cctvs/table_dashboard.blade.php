@@ -14,22 +14,33 @@
          </tr>
       </thead>
 
-      @foreach ($cctvs as $cctv)
-      <tr>
-         <td>{{ $cctv->cctv_type }}</td>
-         <td>{{ $cctv->ip_nvr }}</td>
-         <td>{{ $cctv->ip_cctv }}</td>
-         <td>{{ $cctv->ch }}</td>
-         <td>{{ $cctv->status }}</td>
-         <td>{{ $cctv->area }}</td>
-         <td>{{ $cctv->zone }}</td>
-         <td>{{ $cctv->created_at }}</td>
-         <td>
-            <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-success shadow fw-bold">
-               Lihat
-            </a>
-         </td>
-      </tr>
-      @endforeach
+      @if ($cctvs->isNotEmpty())
+         @foreach ($cctvs as $cctv)
+         <tr>
+            <td>{{ $cctv->cctv_type }}</td>
+            <td>{{ $cctv->ip_nvr }}</td>
+            <td>{{ $cctv->ip_cctv }}</td>
+            <td>{{ $cctv->ch }}</td>
+            <td>{{ $cctv->status }}</td>
+            <td>{{ $cctv->area }}</td>
+            <td>{{ $cctv->zone }}</td>
+            <td>{{ $cctv->created_at }}</td>
+            <td>
+               <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-success shadow fw-bold">
+                  Lihat
+               </a>
+            </td>
+         </tr>
+         @endforeach
+      @else
+         <tr>
+            <td colspan="9">
+               <div class="alert alert-secondary">
+                  Maaf, untuk saat ini data tidak tersedia. Silahkan untuk menambahkan CCTV terlebih dahulu
+                  <a href="{{ route('cctvs.create') }}">di sini</a>.
+               </div>
+            </td>
+         </tr>
+      @endif
    </table>
 </div>
