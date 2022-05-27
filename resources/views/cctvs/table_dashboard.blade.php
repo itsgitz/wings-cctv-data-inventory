@@ -34,7 +34,7 @@
          @endforeach
       @else
          <tr>
-            <td colspan="9">
+            <td colspan="9" class="p-4">
                <div class="alert alert-secondary">
                   Maaf, untuk saat ini data tidak tersedia. Silahkan untuk menambahkan CCTV terlebih dahulu
                   <a href="{{ route('cctvs.create') }}">di sini</a>.
