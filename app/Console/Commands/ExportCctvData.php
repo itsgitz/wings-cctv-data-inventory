@@ -36,15 +36,10 @@ class ExportCctvData extends Command
 
         $decodedData = $this->decodeMappedData($dataSection, self::DATA_JSON);
         $decodedImages = $this->decodeMappedData($dataSection, self::IMAGES_JSON);
-
-        die();
-
-        foreach ($decodedImages as $k => $image) {
-            $decodedData['Foto Capture View'][$k] = $image['file'];
-        }
+        $dataWithImages = $this->mappedDataWithImage($decodedData, $decodedImages);
 
         try {
-            $this->export($decodedData);
+            $this->export($dataWithImages);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
@@ -65,29 +60,45 @@ class ExportCctvData extends Command
         }
     }
 
+    private function mappedDataWithImage($decodedData, $decodedImages)
+    {
+        foreach ($decodedImages as $k => $image) {
+            $decodedData['Foto Capture View'][$k] = $image['file'];
+        }
+
+        return $decodedData;
+    }
+
     private function export($decodedData = [])
     {
-        $cctv = new Cctv;
+        for ($i = 0; $i < count($decodedData['No']); $i++) {
+            echo "Exporting data for {$decodedData['IP CCTV'][$i]} | {$decodedData['CH'][$i]}\n";
 
-        $cctv->data_number      = $decodedData['No'][0];
-        $cctv->recorded_at      = $decodedData['Tanggal Pendataan CCTV'][0];
-        $cctv->cctv_type        = $decodedData['Jenis CCTV'][0];
-        $cctv->ip_nvr           = $decodedData['IP NVR '][0];
-        $cctv->ip_cctv          = $decodedData['IP CCTV'][0];
-        $cctv->ch               = $decodedData['CH'][0];
-        $cctv->status           = $decodedData['Status CCTV'][0];
-        $cctv->area             = $decodedData['Area CCTV'][0];
-        $cctv->zone             = $decodedData['Zona'][0];
-        $cctv->cctv_number      = $decodedData['No CCTV'][0];
-        $cctv->category_area    = $decodedData['Kategori Area'][0];
-        $cctv->location         = $decodedData['Lokasi'][0];
-        $cctv->old_cctv         = $decodedData['Nama CCTV OLD'][0];
-        $cctv->new_cctv         = $decodedData['NEW Nama CCTV (Out/In-Arah View-Aset)'][0];
-        $cctv->name_change      = $decodedData['Perubahan NAMA DONE'][0];
-        $cctv->data_status      = $decodedData['Status Pendataan'][0];
-        $cctv->description      = $decodedData['KETERANGAN'][0];
-        $cctv->image            = $decodedData['Foto Capture View'][0];
+            $cctv = new Cctv;
 
-        $cctv->save();
+            $cctv->data_number      = $decodedData['No'][$i];
+            $cctv->recorded_at      = $decodedData['Tanggal Pendataan CCTV'][$i];
+            $cctv->cctv_type        = $decodedData['Jenis CCTV'][$i];
+            $cctv->ip_nvr           = $decodedData['IP NVR '][$i];
+            $cctv->ip_cctv          = $decodedData['IP CCTV'][$i];
+            $cctv->ch               = $decodedData['CH'][$i];
+            $cctv->status           = $decodedData['Status CCTV'][$i];
+            $cctv->area             = $decodedData['Area CCTV'][$i];
+            $cctv->zone             = $decodedData['Zona'][$i];
+            $cctv->cctv_number      = $decodedData['No CCTV'][$i];
+            $cctv->category_area    = $decodedData['Kategori Area'][$i];
+            $cctv->location         = $decodedData['Lokasi'][$i];
+            $cctv->old_cctv         = $decodedData['Nama CCTV OLD'][$i];
+            $cctv->new_cctv         = $decodedData['NEW Nama CCTV (Out/In-Arah View-Aset)'][$i];
+            $cctv->name_change      = $decodedData['Perubahan NAMA DONE'][$i];
+            $cctv->data_status      = $decodedData['Status Pendataan'][$i];
+            $cctv->description      = $decodedData['KETERANGAN'][$i];
+            $cctv->image            = $decodedData['Foto Capture View'][$i];
+            $cctv->status_notes     = $decodedData['STATUS CCTV'][$i];
+
+            $cctv->save();
+        }
+
+        echo "\nDone! \n";
     }
 }
