@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CctvsController;
+use App\Http\Controllers\HelloController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,3 +41,8 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])
     ->name('auth.logout.get')
     ->middleware('auth');
 
+
+/*
+ * Testing routes:
+ */
+Route::get('/testing', [HelloController::class, 'index']);
