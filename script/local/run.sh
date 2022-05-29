@@ -26,7 +26,8 @@ docker-compose -f \
 
 echo "Waiting for database service ($DB_HOST) ..."
 
-sleep 5
+sleep 7
+php artisan storage:link
 php artisan migrate
 php artisan db:seed
 php artisan serve
