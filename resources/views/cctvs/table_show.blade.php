@@ -50,7 +50,7 @@
    </div>
 
    <div class="px-3 text-center">
-      @if (isset($cctv->image))
+      @if (!empty($cctv->image))
          <img src="{{ $cctv->image }}" alt="CCTV - {{ $cctv->ip_cctv }}" class="img-fluid shadow-lg rounded">
       @else
          <div class="alert alert-secondary">
