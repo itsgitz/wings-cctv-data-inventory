@@ -4,12 +4,13 @@ namespace App\Console\Commands;
 
 use App\Models\Cctv;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class ExportCctvData extends Command
 {
-    const DATA_JSON = 'data.json';
-    const IMAGES_JSON = 'images.json';
-    const STORAGE_PATH = './storage/external';
+    const DATA_JSON     = 'data.json';
+    const IMAGES_JSON   = 'images.json';
+    const IMAGES_STORAGE_PATH = './storage/app/public/img';
 
     /**
      * The name and signature of the console command.
@@ -39,7 +40,7 @@ class ExportCctvData extends Command
         $dataWithImages = $this->mappedDataWithImage($decodedData, $decodedImages);
 
         try {
-            $this->export($dataWithImages);
+            $this->export($dataSection, $dataWithImages);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
@@ -49,7 +50,7 @@ class ExportCctvData extends Command
 
     private function decodeMappedData($dataSection = '', $fileName)
     {
-        $target = self::STORAGE_PATH . '/' . $dataSection . '/' . $fileName;
+        $target = self::IMAGES_STORAGE_PATH . '/' . $dataSection . '.' . $fileName;
         try {
             $readDataJson = file_get_contents($target);
             $finalData = json_decode($readDataJson, true);
@@ -69,7 +70,7 @@ class ExportCctvData extends Command
         return $decodedData;
     }
 
-    private function export($decodedData = [])
+    private function export($dataSection, $decodedData = [])
     {
         for ($i = 0; $i < count($decodedData['No']); $i++) {
             echo "Exporting data for {$decodedData['IP CCTV'][$i]} | {$decodedData['CH'][$i]}\n";
@@ -93,7 +94,15 @@ class ExportCctvData extends Command
             $cctv->name_change      = $decodedData['Perubahan NAMA DONE'][$i];
             $cctv->data_status      = $decodedData['Status Pendataan'][$i];
             $cctv->description      = $decodedData['KETERANGAN'][$i];
-            $cctv->image            = $decodedData['Foto Capture View'][$i];
+
+            $imageUrl = '';
+
+            if ( !empty($decodedData['Foto Capture View'][$i]) ) {
+                $url = 'img/' . $decodedData['Foto Capture View'][$i];
+                $imageUrl = Storage::url($url);
+            }
+
+            $cctv->image            = $imageUrl;
             $cctv->status_notes     = $decodedData['STATUS CCTV'][$i];
 
             $cctv->save();
