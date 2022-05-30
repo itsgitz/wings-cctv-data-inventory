@@ -21,7 +21,7 @@ class CctvsController extends Controller
     public function index()
     {
         //
-        $cctvs = Cctv::all();
+        $cctvs = Cctv::paginate(25);
 
         return view('cctvs.index', [
             'cctvs' => $cctvs

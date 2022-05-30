@@ -1,5 +1,5 @@
 <div class="table-responsive">
-   <table class="table table-hover fw-light">
+   <table class="table table-hover fw-light text-extra-sm">
       <thead>
          <tr>
             <th scope="col">Jenis CCTV</th>
@@ -43,4 +43,10 @@
          </tr>
       @endif
    </table>
+
+   @if ($cctvs->isNotEmpty())
+      <div class="py-3">
+         {{ $cctvs->links() }}
+      </div>
+   @endif
 </div>
