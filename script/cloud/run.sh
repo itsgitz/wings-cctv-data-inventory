@@ -25,8 +25,8 @@ sleep 5
 echo "[*] Run DB Migration ..."
 ./script/cloud/migration.sh
 
-#echo "[*] Run DB Seeding ..."
-#./script/cloud/seed.sh
+echo "[*] Run DB Seeding ..."
+./script/cloud/seed.sh
 
 echo "[*] Run Storage Linking ..."
 ./script/cloud/storage.sh
