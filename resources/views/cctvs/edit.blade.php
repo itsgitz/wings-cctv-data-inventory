@@ -22,7 +22,7 @@
          </div>
       @enderror
       <div>
-         @if (isset($cctv->image))
+         @if (!empty($cctv->image))
             <img src="{{ $cctv->image }}" alt="CCTV - {{ $cctv->ip_cctv }}" class="img-fluid shadow-lg rounded">
          @else
             <div class="alert alert-secondary">
