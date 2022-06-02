@@ -35,15 +35,28 @@
          @csrf
          @method ('PUT')
          <div class="mb-3 col-md-6">
-            <label class="form-label" for="cctvType">Jenis CCTV</label>
+            <label class="form-label" for="dataNumber">No</label>
+            <input id="dataNumber" class="form-control" type="text" name="data_number" value="{{ $cctv->data_number ?? '-' }}">
+         </div>
+         <div class="mb-3 col-md-6">
+            <label class="form-label" for="cctvType">
+               Jenis CCTV
+               <span class="text-secondary text-extra-sm fst-italic">(required)</span>
+            </label>
             <input id="cctvType" class="form-control" type="text" name="cctv_type" value="{{ $cctv->cctv_type ?? '-' }}" required>
          </div>
          <div class="mb-3 col-md-6">
-            <label class="form-label" for="ipNvr">IP NVR</label>
+            <label class="form-label" for="ipNvr">
+               IP NVR
+               <span class="text-secondary text-extra-sm fst-italic">(required)</span>
+            </label>
             <input id="ipNvr" class="form-control" type="text" name="ip_nvr" value="{{ $cctv->ip_nvr ?? '-' }}" required>
          </div>
          <div class="mb-3 col-md-6">
-            <label class="form-label" for="ipNvr">IP CCTV</label>
+            <label class="form-label" for="ipNvr">
+               IP CCTV
+               <span class="text-secondary text-extra-sm fst-italic">(required)</span>
+            </label>
             <input id="ipCctv" class="form-control" type="text" name="ip_cctv" value="{{ $cctv->ip_cctv ?? '-' }}" required>
          </div>
          <div class="mb-3 col-md-6">

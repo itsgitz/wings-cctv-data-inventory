@@ -64,6 +64,10 @@
    <div class="table-responsive p-2">
       <table class="table table-hover">
          <tr>
+            <td>No</td>
+            <td>{{ $cctv->data_number ?? '-' }}</td>
+         </tr>
+         <tr>
             <td>Jenis</td>
             <td>{{ $cctv->cctv_type ?? '-' }}</td>
          </tr>
