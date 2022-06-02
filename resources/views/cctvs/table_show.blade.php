@@ -127,7 +127,7 @@
    </div>
    @else
    <div class="alert alert-warning">
-      Maaf, data CCTV untuk alamat IP {{ $requested_cctv }} tidak ditemukan
+      Maaf, data CCTV untuk {{ $requested_cctv }} tidak ditemukan
    </div>
    @endif
 

@@ -30,20 +30,22 @@ class CctvsController extends Controller
 
     public function searchShowData(Request $request)
     {
-        $request->validate(
-            [
-                'ip'    => ['required', 'ipv4']
-            ],
-            [
-                'ip.required'   => 'IP address untuk CCTV tidak boleh kosong',
-                'ip.ipv4'       => 'IP address harus berformat IPv4'
-            ]
-        );
+        /* $request->validate( */
+        /*     [ */
+        /*         'ip'    => ['required', 'ipv4'] */
+        /*     ], */
+        /*     [ */
+        /*         'ip.required'   => 'IP address untuk CCTV tidak boleh kosong', */
+        /*         'ip.ipv4'       => 'IP address harus berformat IPv4' */
+        /*     ] */
+        /* ); */
 
-        $cctv = Cctv::where('ip_cctv', '=', $request->ip)->first();
+        $cctvs = Cctv::where('ip_cctv', '=', $request->search)
+            ->orWhere('location', '=', $request->search)
+            ->get();
 
         return view('cctvs.search', [
-            'cctv'              => $cctv,
+            'cctvs'              => $cctvs,
             'requested_cctv'    => $request->ip
         ]);
     }

@@ -5,7 +5,7 @@
 
 <div id="cctv-index">
    @include ('shared.search_form')
-   @include ('cctvs.table_show')
+   @include ('cctvs.table_list_search')
 </div>
 
 @endsection
