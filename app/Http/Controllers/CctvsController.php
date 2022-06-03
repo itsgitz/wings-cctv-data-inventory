@@ -32,6 +32,7 @@ class CctvsController extends Controller
     {
         $cctvs = Cctv::where('ip_cctv', '=', $request->search)
             ->orWhere('location', '=', $request->search)
+            ->orWhere('zone', '=', $request->search)
             ->get();
 
         return view('cctvs.search', [

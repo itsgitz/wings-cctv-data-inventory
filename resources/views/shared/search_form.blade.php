@@ -12,7 +12,7 @@
       </form>
    </div>
    <div class="text-extra-sm text-secondary">
-      <span>Temukan CCTV berdasarkan alamat IP dan Lokasi</span>
+      <span>Temukan CCTV berdasarkan alamat IP, Lokasi, atau Zona.</span>
    </div>
 </div>
 <div class="py-3"></div>
