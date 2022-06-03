@@ -61,11 +61,17 @@
 
    <div class="py-3"></div>
 
+   @include ('shared.zone_map')
+
    <div class="table-responsive p-2">
       <table class="table table-hover">
          <tr>
             <td>No</td>
             <td>{{ $cctv->data_number ?? '-' }}</td>
+         </tr>
+         <tr>
+            <td>Tanggal Pendataan CCTV</td>
+            <td>{{ $cctv->recorded_at }}</td>
          </tr>
          <tr>
             <td>Jenis</td>
