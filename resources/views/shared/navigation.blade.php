@@ -16,16 +16,16 @@
          <div class="d-flex">
             <ul class="navbar-nav">
                <li class="nav-item">
-                  <a class="nav-link fw-bold" href="{{ route('cctv.dashboard.get') }}">
+                  <a class="nav-link fw-light" href="{{ route('cctv.dashboard.get') }}">
                      <i class="fas fa-chalkboard"></i> Dashboard
                   </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link fw-bold" href="{{ route('cctvs.create') }}">
+                  <a class="nav-link fw-light" href="{{ route('cctvs.create') }}">
                      <i class="fas fa-camera"></i> Tambah CCTV</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link fw-bold" href="{{ route('auth.logout.get') }}">
+                  <a class="nav-link fw-light" href="{{ route('auth.logout.get') }}">
                      <i class="fas fa-sign-out-alt"></i> Logout
                   </a>
                </li>
