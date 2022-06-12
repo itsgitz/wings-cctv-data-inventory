@@ -1,8 +1,10 @@
-
 FROM php:8-fpm
 
 WORKDIR /var/www/cctv-data-kiel.itsgitz.com
 COPY . /var/www/cctv-data-kiel.itsgitz.com
+
+# Copy opcache configuration to container
+COPY ./nginx/php/opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 # Install system dependencies
 RUN apt-get update; \
@@ -22,5 +24,5 @@ RUN apt-get update; \
 
 # Install PHP extensions
     docker-php-ext-configure zip; \
-    docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip; \
+    docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip opcache; \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer;
