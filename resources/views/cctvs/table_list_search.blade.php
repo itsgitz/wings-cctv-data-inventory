@@ -5,11 +5,9 @@
             <table class="table table-hover fw-light text-extra-sm">
                <thead>
                   <tr>
-                     <th scope="col">Jenis CCTV</th>
                      <th scope="col">IP NVR</th>
                      <th scope="col">IP CCTV</th>
                      <th scope="col">CH</th>
-                     <th scope="col">Status CCTV</th>
                      <th scope="col">Area CCTV</th>
                      <th scope="col">Lokasi</th>
                      <th scope="col">Zona</th>
@@ -20,11 +18,9 @@
 
                @foreach ($cctvs as $cctv)
                <tr>
-                  <td>{{ $cctv->cctv_type }}</td>
                   <td>{{ $cctv->ip_nvr }}</td>
                   <td>{{ $cctv->ip_cctv }}</td>
                   <td>{{ $cctv->ch }}</td>
-                  <td>{{ $cctv->status }}</td>
                   <td>{{ $cctv->area }}</td>
                   <td>{{ $cctv->location }}</td>
                   <td>{{ $cctv->zone }}</td>
