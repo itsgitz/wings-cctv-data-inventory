@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\CctvsController;
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,8 @@ Route::post('/login', [AuthenticationController::class, 'authenticate'])
 Route::get('/logout', [AuthenticationController::class, 'logout'])
     ->name('auth.logout.get')
     ->middleware('auth');
+
+Route::resource('/users', UsersController::class);
 
 
 /*

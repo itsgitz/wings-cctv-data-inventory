@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             $user->name     = env('USER_NAME');
             $user->email    = env('USER_EMAIL');
             $user->password = Hash::make(env('USER_PASSWORD'));
+            $user->role     = 'admin';
             $user->save();
         }
     }

@@ -25,6 +25,11 @@
                      <i class="fas fa-camera"></i> Tambah CCTV</a>
                </li>
                <li class="nav-item">
+                  <a class="nav-link fw-light" href="{{ route('users.index') }}">
+                     <i class="fas fa-users"></i> User Management
+                  </a>
+               </li>
+               <li class="nav-item">
                   <a class="nav-link fw-light" href="{{ route('auth.logout.get') }}">
                      <i class="fas fa-sign-out-alt"></i> Logout
                   </a>
