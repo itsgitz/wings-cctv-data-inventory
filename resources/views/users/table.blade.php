@@ -17,11 +17,11 @@
             <td>{{ $user->userid }}</td>
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
-            <td>{{ $user->role }}</td>
+            <td><b class="fw-bold">{{ $user->role == 'admin' ? 'Administrator' : 'User'  }}</b></td>
             <td>{{ $user->created_at }}</td>
             <td>
-               <a class="btn btn-sm btn-success shadow fw-bold" href="{{ route('users.show', ['user' => $user->id]) }}">
-                  Lihat
+               <a class="btn btn-sm btn-success shadow fw-bold" href="{{ route('users.edit', ['user' => $user->id]) }}">
+                  Edit
                </a>
             </td>
          </tr>

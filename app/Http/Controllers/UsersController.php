@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -55,9 +56,6 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-
-        dd($user);
     }
 
     /**
@@ -69,6 +67,11 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+
+        return view('users.edit', [
+            'user' => $user
+        ]);
     }
 
     /**
@@ -80,7 +83,36 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->name     = $request->name;
+        $user->email    = $request->email;
+
+        // 1 is default user for admin
+        if ($id != 1) {
+            $user->userid   = $request->userid;
+            $user->role     = $request->role;
+        }
+
+        $password = '';
+
+        // If user want update their password
+        if ( isset($request->password) ) {
+            if ($request->password == $request->confirm_password) {
+                $password = Hash::make($password);
+                $user->password = $password;
+            } else {
+                return redirect()
+                    ->route('users.edit', ['user' => $id])
+                    ->with('message_error', 'Password confimation tidak sama');
+            }
+        }
+
+        $user->save();
+
+        return redirect()
+            ->route('users.edit', ['user' => $id])
+            ->with('message_success', 'Data user berhasil diubah');
     }
 
     /**

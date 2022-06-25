@@ -1,6 +1,7 @@
 <div class="shadow-sm p-3">
    @if (isset($cctv))
 
+   @if (Auth::user()->role == 'admin')
    <div class="px-3">
       <ul class="nav">
          <li class="nav-item p-1">
@@ -15,6 +16,7 @@
          </li>
       </ul>
    </div>
+   @endif
 
    <!-- Modal -->
    <div class="modal fade" id="deleteData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -20,6 +20,7 @@
                      <i class="fas fa-chalkboard"></i> Dashboard
                   </a>
                </li>
+               @if (Auth::user()->role == 'admin')
                <li class="nav-item">
                   <a class="nav-link fw-light" href="{{ route('cctvs.create') }}">
                      <i class="fas fa-camera"></i> Tambah CCTV</a>
@@ -29,6 +30,7 @@
                      <i class="fas fa-users"></i> User Management
                   </a>
                </li>
+               @endif
                <li class="nav-item">
                   <a class="nav-link fw-light" href="{{ route('auth.logout.get') }}">
                      <i class="fas fa-sign-out-alt"></i> Logout
