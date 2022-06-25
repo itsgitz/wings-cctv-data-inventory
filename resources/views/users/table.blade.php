@@ -20,9 +20,14 @@
             <td><b class="fw-bold">{{ $user->role == 'admin' ? 'Administrator' : 'User'  }}</b></td>
             <td>{{ $user->created_at }}</td>
             <td>
-               <a class="btn btn-sm btn-success shadow fw-bold" href="{{ route('users.edit', ['user' => $user->id]) }}">
-                  Edit
+               <a class="btn btn-sm btn-warning shadow fw-bold" href="{{ route('users.edit', ['user' => $user->id]) }}">
+                  <i class="fas fa-cog"></i> Edit
                </a>
+               @if ($user->id != 1)
+               <button data-bs-toggle="modal" data-bs-target="#deleteData" class="btn btn-sm btn-danger shadow fw-bold" type="button">
+                  <i class="fas fa-trash"></i> Hapus
+               </button>
+               @endif
             </td>
          </tr>
          @endforeach
@@ -37,4 +42,28 @@
          </tr>
       @endif
    </table>
+
+
+   <!-- Modal -->
+   <div class="modal fade" id="deleteData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Hapus User</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+               Apakah anda yakin akan menghapus user <b>{{ $user->name }}</b> ?
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-sm btn-secondary shadow fw-bolder" data-bs-dismiss="modal">Batal</button>
+               <form action="{{ route('users.destroy', ['user' => $user->id]) }}" method="post">
+                  @csrf
+                  @method ('DELETE')
+                  <button type="submit" class="btn btn-sm shadow fw-bolder btn-danger">Hapus</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>

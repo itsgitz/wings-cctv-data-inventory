@@ -25,7 +25,7 @@
             <td>{{ $cctv->created_at }}</td>
             <td>
                <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-success shadow fw-bold">
-                  Lihat
+                  <i class="fas fa-eye"></i> Lihat
                </a>
             </td>
          </tr>

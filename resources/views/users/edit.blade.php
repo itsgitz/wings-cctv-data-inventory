@@ -34,8 +34,8 @@
 
             <div class="mb-3 col-md-6">
                <select id="role" class="form-select" name="role" @if ($user->id == 1) disabled @endif>
-                  <option value="admin">Administrator</option>
-                  <option value="user">User</option>
+                  <option value="admin" @if ($user->role == 'admin') selected @endif>Administrator</option>
+                  <option value="user" @if ($user->role == 'user') selected @endif>User</option>
                </select>
             </div>
 

@@ -99,7 +99,7 @@ class UsersController extends Controller
         // If user want update their password
         if ( isset($request->password) ) {
             if ($request->password == $request->confirm_password) {
-                $password = Hash::make($password);
+                $password = Hash::make($request->password);
                 $user->password = $password;
             } else {
                 return redirect()
@@ -124,5 +124,12 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+        $user = User::find($id);
+        $user->delete();
+
+
+        return redirect()
+            ->route('users.index')
+            ->with('message_success', 'Berhasil menghapus user');
     }
 }

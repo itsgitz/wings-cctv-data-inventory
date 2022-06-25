@@ -5,7 +5,7 @@
    <div class="px-3">
       <ul class="nav">
          <li class="nav-item p-1">
-            <a class="btn btn-sm btn-primary shadow fw-bolder" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
+            <a class="btn btn-sm btn-warning shadow fw-bolder" href="{{ route('cctvs.edit', ['cctv' => $cctv->id]) }}">
                <i class="fas fa-cog"></i> Edit
             </a>
          </li>
@@ -27,7 +27,7 @@
            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
          </div>
          <div class="modal-body">
-            Apakah anda yakin akan menghapus CCTV {{ $cctv->ip_cctv }} ?
+            Apakah anda yakin akan menghapus CCTV <b>{{ $cctv->ip_cctv }}</b> ?
          </div>
          <div class="modal-footer">
            <button type="button" class="btn btn-sm btn-secondary shadow fw-bolder" data-bs-dismiss="modal">Batal</button>
