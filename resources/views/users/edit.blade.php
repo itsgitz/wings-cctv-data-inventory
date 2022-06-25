@@ -10,6 +10,7 @@
          <h3>Edit User {{ $user->name }}</h3>
       </div>
 
+      @include ('users.error_form_message')
       @include ('shared.message')
 
       <div class="py-3">
@@ -33,6 +34,7 @@
             </div>
 
             <div class="mb-3 col-md-6">
+               <label class="form-label" for="role">Role</label>
                <select id="role" class="form-select" name="role" @if ($user->id == 1) disabled @endif>
                   <option value="admin" @if ($user->role == 'admin') selected @endif>Administrator</option>
                   <option value="user" @if ($user->role == 'user') selected @endif>User</option>
