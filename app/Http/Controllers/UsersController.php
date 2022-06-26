@@ -110,12 +110,13 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::id() != $id) {
-            return redirect()
-                ->route('users.edit', ['user' => Auth::id()]);
+        if (Auth::id() != 1) {
+            if (Auth::id() != $id) {
+                return redirect()
+                    ->route('users.edit', ['user' => Auth::id()]);
+            }
         }
 
-        //
         $user = User::find($id);
 
         return view('users.edit', [
