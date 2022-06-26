@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['auth', 'user.role'])->except('edit', 'update');
+        $this->middleware('auth');
+        $this->middleware('user.role')->except('edit', 'update');
     }
 
     /**
@@ -108,6 +110,11 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::id() != $id) {
+            return redirect()
+                ->route('users.edit', ['user' => Auth::id()]);
+        }
+
         //
         $user = User::find($id);
 

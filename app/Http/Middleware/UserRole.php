@@ -17,9 +17,11 @@ class UserRole
      */
     public function handle(Request $request, Closure $next)
     {
+
         if (Auth::user()->role != 'admin') {
             return abort(404);
         }
+
 
         return $next($request);
     }
