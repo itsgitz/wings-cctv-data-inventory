@@ -117,7 +117,7 @@ class UsersController extends Controller
             }
         }
 
-        $user = User::find($id);
+        $user = User::findOrFail($id);
 
         return view('users.edit', [
             'user' => $user
