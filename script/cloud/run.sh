@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# MAINTAINER: anggit.ginanjar.dev@gmail.com
-
-#!/usr/bin/env bash
-
 echo "[*] Run the services on Cloud (Production) ..."
 
 PROJECT_NAME="cctv-data-kiel_itsgitz_com"
