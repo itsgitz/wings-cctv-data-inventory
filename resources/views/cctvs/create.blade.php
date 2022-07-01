@@ -25,6 +25,14 @@
       <form action="{{ route('cctvs.store') }}" method="post" enctype="multipart/form-data">
          @csrf
          <div class="mb-3 col-md-6">
+            <label class="form-label" for="group">Group</label>
+            <select class="form-select" name="group" id="group">
+               <option value="SMU1">SMU1</option>
+               <option value="SMU2">SMU2</option>
+               <option value="SMU3">SMU3</option>
+            </select>
+         </div>
+         <div class="mb-3 col-md-6">
             <label class="form-label" for="cctvType">Jenis CCTV</label>
             <input id="cctvType" class="form-control" type="text" name="cctv_type" value="" required>
          </div>

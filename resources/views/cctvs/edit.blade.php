@@ -35,6 +35,14 @@
          @csrf
          @method ('PUT')
          <div class="mb-3 col-md-6">
+            <label class="form-label" for="group">Group</label>
+            <select class="form-select" name="group" id="group">
+               <option value="SMU1" @if ($cctv->group == 'SMU1') selected @endif>SMU1</option>
+               <option value="SMU2" @if ($cctv->group == 'SMU2') selected @endif>SMU2</option>
+               <option value="SMU3" @if ($cctv->group == 'SMU3') selected @endif>SMU3</option>
+            </select>
+         </div>
+         <div class="mb-3 col-md-6">
             <label class="form-label" for="dataNumber">No</label>
             <input id="dataNumber" class="form-control" type="text" name="data_number" value="{{ $cctv->data_number ?? '-' }}">
          </div>

@@ -76,6 +76,10 @@
             <td>{{ $cctv->recorded_at }}</td>
          </tr>
          <tr>
+            <td>Group</td>
+            <td>{{ $cctv->group ?? '-' }}</td>
+         </tr>
+         <tr>
             <td>Jenis</td>
             <td>{{ $cctv->cctv_type ?? '-' }}</td>
          </tr>

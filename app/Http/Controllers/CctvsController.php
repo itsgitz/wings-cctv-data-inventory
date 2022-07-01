@@ -98,6 +98,7 @@ class CctvsController extends Controller
        $cctv->name_change       = $request->name_change;
        $cctv->data_status       = $request->data_status;
        $cctv->description       = $request->description;
+       $cctv->group             = $request->group;
 
 
        if ( !empty( $request->file('image') ) ) {
@@ -190,6 +191,7 @@ class CctvsController extends Controller
         $cctv->name_change      = $request->name_change;
         $cctv->data_status      = $request->data_status;
         $cctv->description      = $request->description;
+        $cctv->group            = $request->group;
 
         if ( !empty( $request->file('image') ) ) {
             if ( isset($cctv->image) ) {

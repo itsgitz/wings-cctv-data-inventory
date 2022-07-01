@@ -11,6 +11,7 @@
                      <th scope="col">Area CCTV</th>
                      <th scope="col">Lokasi</th>
                      <th scope="col">Zona</th>
+                     <th scope="col">Group</th>
                      <th scope="col">Dibuat Tanggal</th>
                      <th scope="col">#</th>
                   </tr>
@@ -24,6 +25,7 @@
                   <td>{{ $cctv->area }}</td>
                   <td>{{ $cctv->location }}</td>
                   <td>{{ $cctv->zone }}</td>
+                  <td>{{ $cctv->group }}</td>
                   <td>{{ $cctv->created_at }}</td>
                   <td>
                      <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-success shadow fw-bold">
