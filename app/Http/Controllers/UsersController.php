@@ -49,9 +49,9 @@ class UsersController extends Controller
     {
         $request->validate(
             [
-                'userid'    => ['required', 'min:4', 'max:12'],
+                'userid'    => ['required', 'min:4', 'max:12', 'unique:App\Models\User,userid'],
                 'name'      => ['required', 'min:6'],
-                'email'     => ['required', 'email:rfc,dns'],
+                'email'     => ['required', 'email:rfc,dns', 'unique:App\Models\User,email'],
                 'role'      => ['required'],
                 'password'  => ['required', 'min:6'],
             ],
@@ -59,10 +59,12 @@ class UsersController extends Controller
                 'userid.required'   => 'Username tidak boleh kosong',
                 'userid.min'        => 'Username minimal harus memiliki 4 karakter',
                 'userid.max'        => 'Username tidak boleh lebih dari 12 karakter',
+                'userid.unique'     => 'Username telah terdaftar',
                 'name.required'     => 'Nama tidak boleh kosong',
                 'name.min'          => 'Nama minimal harus memiliki 6 karakter',
                 'email.required'    => 'Email tidak boleh kosong',
                 'email.email'       => 'Format email salah',
+                'email.unique'      => 'Email telah terdaftar',
                 'role.required'     => 'Role tidak boleh kosong',
                 'password.required'     => 'Password tidak boleh kosong',
                 'password.min'          => 'Password minimal harus memiliki 6 karakter'
@@ -84,6 +86,7 @@ class UsersController extends Controller
         $user->email    = $request->email;
         $user->role     = $request->role;
         $user->password  = $password;
+        $user->description = $request->description;
 
         $user->save();
 
@@ -162,6 +165,28 @@ class UsersController extends Controller
         $password = '';
 
         $user = User::find($id);
+
+        if ($request->userid != $user->userid) {
+            $request->validate(
+                [
+                    'userid'        => ['unique:App\Models\User,userid']
+                ],
+                [
+                    'userid.unique'     => 'Username telah terdaftar'
+                ]
+            );
+        }
+
+        if ($request->email != $user->email) {
+            $request->validate(
+                [
+                    'email'         => ['unique:App\Models\User,email']
+                ],
+                [
+                    'email.unique'  => 'Email telah terdaftar'
+                ]
+            );
+        }
 
         // If user want update their password
         if ( isset($request->password) ) {
