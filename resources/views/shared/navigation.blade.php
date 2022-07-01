@@ -15,23 +15,18 @@
          </ul>
          <div class="d-flex">
             <ul class="navbar-nav">
-               <li class="nav-item px-2">
-                  <a class="nav-link fw-light" href="{{ route('cctv.dashboard.get') }}">
-                     <i class="fas fa-chalkboard"></i> Dashboard
-                  </a>
-               </li>
                @if (Auth::user()->role == 'admin')
-               <li class="nav-item px-2">
+               <li class="nav-item px-1">
                   <a class="nav-link fw-light" href="{{ route('cctvs.create') }}">
                      <i class="fas fa-camera"></i> Tambah CCTV</a>
                </li>
-               <li class="nav-item px-2">
+               <li class="nav-item px-1">
                   <a class="nav-link fw-light" href="{{ route('users.index') }}">
                      <i class="fas fa-users"></i> User Management
                   </a>
                </li>
                @endif
-               <li class="nav-item px-2 dropdown">
+               <li class="nav-item px-1 dropdown">
                   <a class="nav-link fw-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                      <i class="fas fa-user-circle"></i> {{ Auth::user()->name }}
                   </a>
