@@ -18,10 +18,16 @@ class CctvsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        $cctvs = Cctv::paginate(25);
+        $group = $request->input('group');
+
+        // redirect to default cctv data SMU1
+        if ( empty($group) ) {
+            return redirect('/?group=SMU1');
+        }
+
+        $cctvs = Cctv::where('group', $group)->paginate(25);
 
         return view('cctvs.index', [
             'cctvs' => $cctvs

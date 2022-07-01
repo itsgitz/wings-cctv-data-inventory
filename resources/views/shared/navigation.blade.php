@@ -16,9 +16,33 @@
          <div class="d-flex">
             <ul class="navbar-nav">
                @if (Auth::user()->role == 'admin')
-               <li class="nav-item px-1">
-                  <a class="nav-link fw-light" href="{{ route('cctvs.create') }}">
-                     <i class="fas fa-camera"></i> Tambah CCTV</a>
+               <li class="nav-item px-1 dropdown">
+                  <a class="nav-link fw-light dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                     <i class="fas fa-camera"></i> Data CCTV
+                  </a>
+                  <ul class="dropdown-menu text-extra-sm" aria-labelledby="dropdownMenuLink">
+                     <li>
+                        <a class="dropdown-item fw-light" href="{{ route('cctvs.create') }}">
+                           <i class="fas fa-plus"></i> Tambah CCTV
+                        </a>
+                     </li>
+                     <li><hr class="dropdown-divider"></li>
+                     <li>
+                        <a class="dropdown-item fw-light" href="{{ route('cctv.dashboard.get', ['group' => 'SMU1']) }}">
+                           SMU1
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item fw-light" href="{{ route('cctv.dashboard.get', ['group' => 'SMU2']) }}">
+                           SMU2
+                        </a>
+                     </li>
+                     <li>
+                        <a class="dropdown-item fw-light" href="{{ route('cctv.dashboard.get', ['group' => 'SMU3']) }}">
+                           SMU3
+                        </a>
+                     </li>
+                  </ul>
                </li>
                <li class="nav-item px-1">
                   <a class="nav-link fw-light" href="{{ route('users.index') }}">
