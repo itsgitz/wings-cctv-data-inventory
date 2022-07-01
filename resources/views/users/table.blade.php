@@ -6,7 +6,7 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th scope="col">Role</th>
-            <th scope="col">Dibuat Tanggal</th>
+            <th scope="col">Deskripsi</th>
             <th scope="col">#</th>
          </tr>
       </thead>
@@ -18,7 +18,7 @@
             <td>{{ $user->name }}</td>
             <td>{{ $user->email }}</td>
             <td><b class="fw-bold">{{ $user->role == 'admin' ? 'Administrator' : 'User'  }}</b></td>
-            <td>{{ $user->created_at }}</td>
+            <td> - </td>
             <td>
                <a class="btn btn-sm btn-warning shadow fw-bold" href="{{ route('users.edit', ['user' => $user->id]) }}">
                   <i class="fas fa-cog"></i> Edit
