@@ -85,7 +85,9 @@
          </tr>
          <tr>
             <td>IP CCTV</td>
-            <td>{{ $cctv->ip_cctv ?? '-' }}</td>
+            <td>
+               {{ $cctv->ip_cctv ?? '-' }} <a href="http://{{ $cctv->ip_cctv }}" target="__blank"> <i class="fas fa-window-restore"></i> </a>
+            </td>
          </tr>
          <tr>
             <td>CH</td>

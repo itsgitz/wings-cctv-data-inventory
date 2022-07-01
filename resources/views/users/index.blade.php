@@ -8,7 +8,7 @@
 
    <div class="shadow-sm p-3">
       <div id="button-box">
-         <a class="btn btn-sm btn-primary shadow fw-bolder" href="{{ route('users.create') }}">
+         <a class="btn btn-sm btn-secondary shadow fw-bolder" href="{{ route('users.create') }}">
             <i class="fas fa-user-plus"></i> Tambah User
          </a>
       </div>

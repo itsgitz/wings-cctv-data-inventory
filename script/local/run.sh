@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# MAINTAINER: anggit.ginanjar.dev@gmail.com
-
 php -v
 
 if [ $? != 0 ]; then

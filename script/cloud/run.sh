@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# MAINTAINER: anggit.ginanjar.dev@gmail.com
-
 echo "[*] Run the services on Cloud (Production) ..."
 
 PROJECT_NAME="cctv-data-kiel_itsgitz_com"
@@ -10,6 +8,9 @@ DOCKER_BUILDKIT=1 \
     docker-compose -f docker-compose.cloud.yaml \
     -p $PROJECT_NAME \
     up --build --force-recreate -d
+
+echo "[*] Install and building assets ..."
+./script/cloud/npm.sh
 
 echo "[*] Run Composer Install ..."
 ./script/cloud/composer.sh
