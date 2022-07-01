@@ -2,8 +2,6 @@
 
 # MAINTAINER: anggit.ginanjar.dev@gmail.com
 
-#!/usr/bin/env bash
-
 echo "[*] Run the services on Cloud (Production) ..."
 
 PROJECT_NAME="cctv-data-kiel_itsgitz_com"
@@ -15,6 +13,9 @@ DOCKER_BUILDKIT=1 \
 
 echo "[*] Run Composer Install ..."
 ./script/cloud/composer.sh
+
+echo "[*] Installing npm packages ..."
+./script/cloud/npm.sh
 
 echo "[*] Clear Cache ..."
 ./script/cloud/cache.sh
