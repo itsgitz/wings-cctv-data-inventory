@@ -23,7 +23,7 @@
                <input id="userid" name="userid" class="form-control" type="text" min="6" required>
             </div>
             <div class="mb-3 col-md-6">
-               <label class="form-label" for="name">Name</label>
+               <label class="form-label" for="name">Alias</label>
                <input id="name" name="name" class="form-control" type="text" min="6" required>
             </div>
             <div class="mb-3 col-md-6">
@@ -44,6 +44,10 @@
             <div class="mb-3 col-md-6">
                <label class="form-label" for="confirm_password">Password Confirmation</label>
                <input id="confirm_password" name="confirm_password" class="form-control" type="password" min="6"required>
+            </div>
+            <div class="mb-3 col-md-6">
+               <label class="form-label" for="description">Deskripsi</label>
+               <textarea class="form-control" name="description" id="description" cols="30" rows="5"></textarea>
             </div>
 
             <div class="py-2"></div>

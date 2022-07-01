@@ -24,7 +24,7 @@
             </div>
 
             <div class="mb-3 col-md-6">
-               <label class="form-label" for="name">Name</label>
+               <label class="form-label" for="name">Alias</label>
                <input id="name" class="form-control" type="text" name="name" value="{{ $user->name }}" required>
             </div>
 
@@ -48,6 +48,10 @@
             <div class="mb-3 col-md-6">
                <label class="form-label" for="confirm_password">Confirm Password</label>
                <input id="confirm_password" class="form-control" type="password" name="confirm_password" min="6">
+            </div>
+            <div class="mb-3 col-md-6">
+               <label class="form-label" for="description">Deskripsi</label>
+               <textarea class="form-control" name="description" id="description" cols="30" rows="5">{{ $user->description }}</textarea>
             </div>
 
             <div class="py-2"></div>
