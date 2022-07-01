@@ -3,7 +3,7 @@
       <thead>
          <tr>
             <th scope="col">Username</th>
-            <th scope="col">Name</th>
+            <th scope="col">Alias</th>
             <th scope="col">Email</th>
             <th scope="col">Role</th>
             <th scope="col">Deskripsi</th>
