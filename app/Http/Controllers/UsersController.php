@@ -219,6 +219,8 @@ class UsersController extends Controller
             $user->role     = $request->role;
         }
 
+        $user->description = $request->description;
+
         $user->save();
 
         return redirect()
