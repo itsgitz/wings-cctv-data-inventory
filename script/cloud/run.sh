@@ -9,6 +9,9 @@ DOCKER_BUILDKIT=1 \
     -p $PROJECT_NAME \
     up --build --force-recreate -d
 
+echo "[*] Install and building assets ..."
+./script/cloud/npm.sh
+
 echo "[*] Run Composer Install ..."
 ./script/cloud/composer.sh
 
