@@ -86,11 +86,15 @@
          </div>
          <div class="mb-3 col-md-6">
             <label class="form-label" for="description">Keterangan</label>
-            <textarea id="description" class="form-control" type="text" name="description"></textarea>
+            <textarea id="description" class="form-control" type="text" name="description" cols="30" rows="5"></textarea>
          </div>
          <div class="mb-3 col-md-6">
-            <label class="form-label" for="image">Gambar CCTV</label>
+            <label class="form-label" for="image">Gambar CCTV (capture cctv)</label>
             <input id="image" class="form-control" type="file" name="image">
+         </div>
+         <div class="mb-3 col-md-6">
+            <label class="form-label" for="zoneMap">Layout CCTV (zone map)</label>
+            <input id="zoneMap" class="form-control" type="file" name="zone_map">
          </div>
          <div class="py-2"></div>
          <a class="btn btn-sm btn-danger shadow fw-bolder" href="{{ route('cctv.dashboard.get') }}">

@@ -114,6 +114,11 @@ class CctvsController extends Controller
            $cctv->image = Storage::url($image);
        }
 
+       if ( !empty( $request->file('zone_map') ) ) {
+           $zoneMap = $request->file('zone_map')->store('public/img/cctvs');
+           $cctv->zone_map = Storage::url($zoneMap);
+       }
+
        $cctv->save();
 
        return redirect()
@@ -211,6 +216,16 @@ class CctvsController extends Controller
             $cctv->image = Storage::url($image);
         }
 
+        if ( !empty( $request->file('zone_map') ) ) {
+            if ( isset($cctv->zone_map) ) {
+                $zoneMap = 'public' . str_replace('/storage', '', $cctv->zone_map);
+                Storage::delete($zoneMap);
+            }
+
+            $zoneMap = $request->file('zone_map')->store('public/img/cctvs');
+            $cctv->image = Storage::url($zoneMap);
+        }
+
         $cctv->save();
 
         return redirect()
@@ -230,8 +245,11 @@ class CctvsController extends Controller
 
         $cctv->delete();
 
-        $filePath = 'public' . str_replace('/storage', '', $cctv->image);
-        Storage::delete($filePath);
+        $cctvImage = 'public' . str_replace('/storage', '', $cctv->image);
+        Storage::delete($cctvImage);
+
+        $zoneMapImage = 'public' . str_replace('/storage', '', $cctv->zone_map);
+        Storage::delete($zoneMapImage);
 
         return redirect()
             ->route('cctv.dashboard.get')
