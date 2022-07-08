@@ -17,7 +17,7 @@
       @if ($cctvs->isNotEmpty())
          @foreach ($cctvs as $cctv)
          <tr>
-            <td>{{ $cctv->ip_nvr }}</td>
+            <td><a href="http://{{ $cctv->ip_nvr }}" target="__blank">{{ $cctv->ip_nvr }}</a></td>
             <td><a href="http://{{ $cctv->ip_cctv }}" target="__blank">{{ $cctv->ip_cctv }}</a></td>
             <td>{{ $cctv->ch }}</td>
             <td>{{ $cctv->area }}</td>
@@ -36,7 +36,7 @@
          <tr>
             <td colspan="9" class="p-4">
                <div class="alert alert-warning">
-                  Maaf, untuk saat ini data tidak tersedia. Silahkan untuk menambahkan CCTV terlebih dahulu
+                  Maaf, saat ini data untuk <b>{{ Request::input('group') }}</b> tidak tersedia. Silahkan untuk menambahkan CCTV terlebih dahulu
                   <a href="{{ route('cctvs.create') }}">di sini</a>.
                </div>
             </td>

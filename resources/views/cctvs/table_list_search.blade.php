@@ -19,7 +19,7 @@
 
                @foreach ($cctvs as $cctv)
                <tr>
-                  <td>{{ $cctv->ip_nvr }}</td>
+                  <td><a href="http://{{ $cctv->ip_nvr }}" target="__blank">{{ $cctv->ip_nvr }}</a></td>
                   <td><a href="http://{{ $cctv->ip_cctv }}" target="__blank">{{ $cctv->ip_cctv }}</a></td>
                   <td>{{ $cctv->ch }}</td>
                   <td>{{ $cctv->area }}</td>
