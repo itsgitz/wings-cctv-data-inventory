@@ -141,6 +141,18 @@
             <td>Keterangan</td>
             <td>{{ $cctv->description ?? '-' }}</td>
          </tr>
+         <tr>
+            <td>No. Asset</td>
+            <td>{{ $cctv->no_asset ?? '-' }}</td>
+         </tr>
+         <tr>
+            <td>Tahun Asset</td>
+            <td>{{ $cctv->year_asset ?? '-' }}</td>
+         </tr>
+         <tr>
+            <td>Dibuat Tanggal</td>
+            <td>{{ $cctv->created_at }}</td>
+         </tr>
       </table>
    </div>
    @else

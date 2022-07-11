@@ -123,6 +123,14 @@
                <textarea id="description" class="form-control" type="text" name="description">{{ $cctv->description ?? '-' }}</textarea>
             </div>
             <div class="mb-3 col-md-6">
+               <label class="form-label" for="noAsset">No. Asset</label>
+               <input id="noAsset" class="form-control" type="text" name="no_asset" value="{{ $cctv->no_asset }}">
+            </div>
+            <div class="mb-3 col-md-6">
+               <label class="form-label" for="yearAsset">Tahun Asset</label>
+               <input id="yearAsset" class="form-control" type="text" name="year_asset" value="{{ $cctv->year_asset }}">
+            </div>
+            <div class="mb-3 col-md-6">
                <label class="form-label" for="image">Ubah Gambar CCTV</label>
                <input id="image" class="form-control" type="file" name="image">
             </div>

@@ -5,11 +5,10 @@
             <th scope="col">IP NVR</th>
             <th scope="col">IP CCTV</th>
             <th scope="col">CH</th>
-            <th scope="col">Area CCTV</th>
             <th scope="col">Lokasi</th>
             <th scope="col">Zona</th>
-            <th scope="col">Group</th>
-            <th scope="col">Dibuat Tanggal</th>
+            <th scope="col">No. Asset</th>
+            <th scope="col">Tahun Asset</th>
             <th scope="col">#</th>
          </tr>
       </thead>
@@ -20,11 +19,10 @@
             <td><a href="http://{{ $cctv->ip_nvr }}" target="__blank">{{ $cctv->ip_nvr }}</a></td>
             <td><a href="http://{{ $cctv->ip_cctv }}" target="__blank">{{ $cctv->ip_cctv }}</a></td>
             <td>{{ $cctv->ch }}</td>
-            <td>{{ $cctv->area }}</td>
             <td>{{ $cctv->location }}</td>
             <td>{{ $cctv->zone }}</td>
-            <td>{{ $cctv->group }}</td>
-            <td>{{ $cctv->created_at }}</td>
+            <td>{{ $cctv->no_asset ?? '-' }}</td>
+            <td>{{ $cctv->year_asset ?? '-' }}</td>
             <td>
                <a href="{{ route('cctvs.show', ['cctv' => $cctv->id]) }}" class="btn btn-sm btn-success shadow fw-bold">
                   <i class="fas fa-eye"></i> Lihat

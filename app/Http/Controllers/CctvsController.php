@@ -107,6 +107,8 @@ class CctvsController extends Controller
        $cctv->data_status       = $request->data_status;
        $cctv->description       = $request->description;
        $cctv->group             = $request->group;
+       $cctv->no_asset          = $request->no_asset;
+       $cctv->year_asset        = $request->year_asset;
 
 
        if ( !empty( $request->file('image') ) ) {
@@ -205,6 +207,8 @@ class CctvsController extends Controller
         $cctv->data_status      = $request->data_status;
         $cctv->description      = $request->description;
         $cctv->group            = $request->group;
+        $cctv->no_asset         = $request->no_asset;
+        $cctv->year_asset       = $request->year_asset;
 
         if ( !empty( $request->file('image') ) ) {
             if ( isset($cctv->image) ) {
