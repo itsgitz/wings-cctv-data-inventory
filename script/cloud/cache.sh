@@ -2,21 +2,21 @@
 
 PROJECT_NAME="cctv-data-kiel_itsgitz_com"
 
-docker-compose \
+docker compose \
     -f docker-compose.cloud.yaml \
     -p $PROJECT_NAME \
     exec \
     app-web \
     php artisan optimize:clear
 
-docker-compose \
+docker compose \
     -f docker-compose.cloud.yaml  \
     -p $PROJECT_NAME  \
     exec \
     app-web \
     php artisan config:cache
 
-docker-compose \
+docker compose \
     -f docker-compose.cloud.yaml  \
     -p $PROJECT_NAME \
     exec \
@@ -24,7 +24,7 @@ docker-compose \
     php artisan route:cache
 
 
-docker-compose \
+docker compose \
     -f docker-compose.cloud.yaml  \
     -p $PROJECT_NAME \
     exec \
