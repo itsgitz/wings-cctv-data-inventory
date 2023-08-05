@@ -2,7 +2,7 @@
 
 PROJECT_NAME="cctv-data-kiel_itsgitz_com"
 
-docker-compose \
+docker compose \
     -f docker-compose.cloud.yaml \
     -p $PROJECT_NAME \
     exec \
